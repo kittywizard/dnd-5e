@@ -5,4 +5,11 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+  background-image: url(./img/paper-background.png), linear-gradient(90deg, rgba(104, 69, 32, 0.603), rgba(255, 198, 137, 0.904), rgba(104, 69, 32, 0.827));
+  background-color: rgba(104, 69, 32, 0.827);
+  background-blend-mode: screen;
+  background-size: cover;
+  color: rgb(73, 41, 7);
 }
