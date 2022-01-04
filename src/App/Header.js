@@ -1,5 +1,5 @@
 
-function Header() {
+export default function Header() {
     return (
         <header className="header">
             <h3>Dungeons & Dragons</h3>
@@ -9,5 +9,3 @@ function Header() {
         </header>
     )
 }
-
-export default Header; 

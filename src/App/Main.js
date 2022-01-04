@@ -1,26 +1,28 @@
 
-// async function fetchData(charClass) {
-//     let data = await fetch(`https://www.dnd5eapi.co/api/classes/${charClass}`);
-//     let json = await data.json();
-    
+import React from "react";
 
-//     console.log(json)
-//     const displayName = json.name;
-//     const hitDie = json.hit_die;
-//     const displayDiv = document.createElement('div');
+export default function Main(props) {
+    const [character, setCharacter] = React.useState({
+        class: props.charClass,
+        hitDice: 0
+    });
 
-//     displayDiv.textContent = displayName + " " + hitDie;
+    React.useEffect(() => {
+        fetch(`https://www.dnd5eapi.co/api/classes/${props.charClass}`)
+        .then(data => data.json())
+        .then(json => setCharacter(({
+            class: json.name,
+            hitDice: json.hit_die
+        })))
+    }, [props.charClass])
 
-// }
-
-function Main(props) {
-    //fetchData(props.charClass);
+    console.log(character)
 
     return (
         <main className="main">
-           {props.charClass}
+            Name: {character.class} <br />
+            Dice: {character.hitDice}
         </main>
     )
 }
 
-export default Main; 

@@ -1,13 +1,20 @@
 import Header from './Header';
 import Main from './Main';
 
-function App() {
+export default function App() {
+
+  const playerClasses = ["barbarian", "cleric", "fighter", "wizard"];
+
+  const classArray = playerClasses.map(playerClass => {
+    return <Main 
+              charClass={playerClass}
+            />
+  })
+
   return (
     <div className="container">
       <Header />
-      <Main charClass="barbarian" />
+      {classArray}
     </div>
   );
 }
-
-export default App;
