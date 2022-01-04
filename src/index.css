@@ -13,3 +13,51 @@ body {
   background-size: cover;
   color: rgb(73, 41, 7);
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+
+a {
+  text-decoration: none;
+
+  font-weight: 700;
+  color: rgb(104, 69, 4);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+a:hover,
+a:focus {
+  color: #000;
+  cursor: pointer;
+}
+
+.header {
+  font-weight: 600;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.header a:hover,
+.header a:focus {
+  color: #4b4b68;
+}
+
+/* media query */
+
+@media (min-width: 600px) {
+  .header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+  }
+}
