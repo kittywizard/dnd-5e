@@ -16,8 +16,6 @@ export default function Main(props) {
         })))
     }, [props.charClass])
 
-    console.log(character)
-
     return (
         <main className="main">
             Name: {character.class} <br />
