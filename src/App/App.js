@@ -1,51 +1,44 @@
 import Header from './Header';
 import React from "react";
 import Main from './Main';
-import charData from '../data.js';
+import charData from '../data/characterData.js';
 
 export default function App() {
 
   const [character, setCharacter] = React.useState(charData);
-  const [data, setData] = React.useState([]);
-
-  const characterArray = ["cleric", "monk"];
-
-  //need to call the API and grab class data for each of the provided classes
 
   React.useEffect(() => {
-      characterArray.forEach(char => {
-          fetch(`https://www.dnd5eapi.co/api/classes/${char}`)
+
+          fetch(`https://www.dnd5eapi.co/api/classes/${character.playerClass}`)
             .then(res => res.json())
             .then(data => {
-                setData(prevState => ([
-                ...prevState,
-                data
-                ]))
+              console.log(data)
+                setCharacter(prevState => ({
+                  ...prevState,
+                  hitDice: data.hit_die,
+                  proficiencies: data.proficiencies
+                }))
             })
-        }); 
         
-  }, []);
+  }, []); 
 
-  //so now data has all the API info stored in it - we shouldn't need to make anymore API calls (theoretically - for now)
-  //
+  console.log(character)
 
-  data.forEach(char => {
-      setCharacter(prevState, ({
-        ...prevState,
-        
-      }))
-  })
-  
-    //const classArray = character.map(playerClass => {
+    // const classArray = character.map(player => {
     //   return <Main 
-    //             charClass={playerClass}
+    //             character={player}
+    //             key={player.key}
     //           />
     // })
 
   return (
     <div className="container">
       <Header />
-      {/* {classArray} */}
+      <div className='modules'>
+        {/* {classArray} */}
+        <Main 
+          character={character}/>
+      </div>
     </div>
   );
 }

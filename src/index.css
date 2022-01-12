@@ -21,6 +21,17 @@ body {
   width: 80%;
 }
 
+.modules {
+  display: flex;
+  flex-direction: row;
+}
+
+.main {
+  padding: 1em;
+  margin: 0.5em;
+  background: rgba(104, 69, 32, 0.303);
+}
+
 a {
   text-decoration: none;
 

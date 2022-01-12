@@ -2,13 +2,14 @@
 import React from "react";
 
 export default function Main(props) {
-
+    console.log(props)
+    const charDisplay = props.character;
     return (
         <main className="main">
-            {/* Name: {props.name} <br />
-            Class: {props.class} <br />
-            Dice: {props.hitDice} */}
-            Test
+            Name: {charDisplay.name} <br />
+            Class: {charDisplay.playerClass} <br />
+            Dice: {charDisplay.hitDice} <br/>
+            Race: {charDisplay.race}
         </main>
     )
 }
