@@ -6,23 +6,24 @@ import charData from '../data/characterData.js';
 export default function App() {
 
   const [character, setCharacter] = React.useState(charData);
+  let apiUrl = "https://www.dnd5eapi.co/api";
 
   React.useEffect(() => {
 
-          fetch(`https://www.dnd5eapi.co/api/classes/${character.playerClass}`)
-            .then(res => res.json())
-            .then(data => {
-              console.log(data)
-                setCharacter(prevState => ({
-                  ...prevState,
-                  hitDice: data.hit_die,
-                  proficiencies: data.proficiencies
-                }))
-            })
+    async function callAPI(char, index) {
+      let response = await fetch(`${apiUrl}/classes/${character[index].playerClass}`);
+      let data = response.json();
+
+      setCharacter(prevState => ({
+        ...prevState,
+        hitDice: data.hit_die
+      }))
+
+      }
+
+    character.forEach((char,index) => callAPI(char, index));
         
   }, []); 
-
-  console.log(character)
 
     // const classArray = character.map(player => {
     //   return <Main 
