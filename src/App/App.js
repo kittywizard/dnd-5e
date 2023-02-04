@@ -5,6 +5,8 @@ import Main from './Main';
 export default function App() {
 
   const [charClass, setCharClass] = React.useState({});
+  const[charSpells, setCharSpells] = React.useState({});
+
   let apiUrl = "https://www.dnd5eapi.co/api";
 
   React.useEffect(() => {
@@ -14,7 +16,9 @@ export default function App() {
       .then(data => {
         console.log(data);
         setCharClass(data);
-      })
+      });
+
+      fetch()
         
   }, []); 
 
